@@ -1,0 +1,16 @@
+<div class="container">
+
+	<form th:action="@{/roles}" method="post" th:object="${roleModel.role}"
+		id="roleForm">
+		<input type="hidden" name="id" th:value="*{id}">	
+		<div class="form-group">
+			<label for="name" class="col-form-label">角色名</label> <input
+				type="text" class="form-control" id="name" name="name"
+				th:value="*{name}" maxlength="20" placeholder="请输入角色名，至少2个字符，至多20个">
+		</div>
+		
+		
+	</form>
+
+</div>
+<!-- /.container -->

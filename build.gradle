@@ -1,0 +1,59 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	ext['thymeleaf.version'] = '3.0.3.RELEASE'
+	ext['thymeleaf-layout-dialect.version'] = '2.2.0'
+	repositories {
+		//mavenCentral()
+		maven
+		{
+			url 'http://maven.aliyun.com/nexus/content/groups/public/'
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.gkwang.blog'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	//mavenCentral()
+	maven
+	{
+		url 'http://maven.aliyun.com/nexus/content/groups/public/'
+	}
+}
+
+
+dependencies {
+
+	//添加Markdown parse依赖
+	implementation('es.nitaur.markdown:txtmark:0.16')
+	//添加Apache Commons Lang依赖
+	implementation('org.apache.commons:commons-lang3:3.5')
+	//添加Spring Security依赖
+	implementation('org.springframework.boot:spring-boot-starter-security')
+	//添加Thymeleaf Spring Security依赖
+	implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
+	//Jna依赖
+	implementation('net.java.dev.jna:jna:4.3.0')
+	//Elasticsearch依赖
+	implementation('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+	//Mysql连接驱动
+	implementation('mysql:mysql-connector-java:5.1.14')
+	//Spring Data Jpa依赖
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	//Thymeleaf依赖
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
